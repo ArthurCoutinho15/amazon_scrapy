@@ -85,12 +85,18 @@ def scrapy(driver):
         except Exception as e:
             print(f'Erro ao obter média de avaliações: {e}')
             mean_rating = None
-
+        try:
+            link = product.find_element(
+                By.XPATH, './/a[@class="a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal" ]').get_attribute('href')
+        except Exception as e:
+            print(f'Erro ao obter link: {e}')
+            link = None
         data.append({
             'name': name,
             'price': price,
             'rating': rating,
-            'mean': mean_rating
+            'mean': mean_rating,
+            'link': link
         })
 
     return data
