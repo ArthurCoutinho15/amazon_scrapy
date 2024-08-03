@@ -37,7 +37,7 @@ Em seguida, gera um dashboard interativo utilizando Streamlit para visualizaçã
 </code></pre>
 <h2>Utilização do Streamlit</h2>
 <p>
-    O Streamlit é utilizado para criar um dashboard interativo que mostra os dados de tênis vendidos no mercado livre e seus KPI's.
+    O Streamlit é utilizado para criar um dashboard interativo que mostra os dados de notebooks vendidos na amazon.
 </p>
 
 <h3>Execução do Streamlit</h3>
