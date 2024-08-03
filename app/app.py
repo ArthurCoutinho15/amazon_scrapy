@@ -37,7 +37,7 @@ def date_query(engine, search):
 
 
 def kpi(df):
-    st.title('Análise de Notebooks')
+    st.title('Análise de Produtos')
 
     st.sidebar.header('Filtros')
 
@@ -58,7 +58,7 @@ def kpi(df):
         ]
 
         st.header('Dados Filtrados')
-        st.dataframe(filtered_df)
+        st.dataframe(filtered_df, width=5000)
 
         st.header('Análise Gráfica')
 
@@ -69,7 +69,7 @@ def kpi(df):
         st.bar_chart(filtered_df['mean'])
 
         st.write(
-            'Aplicação desenvolvida para análise de notebooks raspados da Amazon.')
+            'Aplicação desenvolvida para análise de produtos raspados da Amazon.')
     else:
         st.write('Nenhum produto encontrado com os critérios de busca.')
 

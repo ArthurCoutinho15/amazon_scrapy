@@ -16,7 +16,8 @@ from datetime import date
 def iniciar():
     driver = selenium_config()
     data = []
-    base_url = 'https://www.amazon.com.br/s?k=notebook&page=2&crid=3FAAZOPL37ABO&qid=1722108689&sprefix=note%2Caps%2C260&ref=sr_pg_1'
+    product = input("Qual produto deseja fazer o scrapy: ").strip()
+    base_url = f'https://www.amazon.com.br/s?k={product}'
 
     for page in range(1, 6):
         page_url = f'{base_url}&page={page}'
@@ -158,7 +159,7 @@ def conn_mysql(host, user, password, database):
 def load_csv(df, engine):
     try:
         df.to_sql(name='products', con=engine,
-                  if_exists='replace', index=False)
+                  if_exists='append', index=False)
 
         print('Data was sucessfully saved in products')
     except Exception as e:
@@ -166,6 +167,7 @@ def load_csv(df, engine):
 
 
 if __name__ == '__main__':
+    load_dotenv()
     iniciar()
     HOST = os.getenv('HOST')
     USER = os.getenv('USER')
